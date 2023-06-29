@@ -1,0 +1,41 @@
+<<Eric Li>>
+HW3
+Written Questions
+
+Question 1. Symbol Table Investigation
+--------------------------------------
+
+You will evaluate FIVE different Symbol Table implementations:
+
+	* AVLTreeST
+	* BST
+	* LinearProbingHashST
+	* SeparateChainingHashST
+	* SequentialSearchST
+
+You will need to modify your code to produce five tables that are assigned the labels:
+
+    * Table I, Table II, Table III, Table IV, Table V
+
+For this question, you must fill in:
+
+	AVLTreeST               is Table I
+	BST                     is Table V
+	LinearProbingHashST     is Table III
+	SeparateChainingHashST  is Table IV
+	SequentialSearchST      is Table II
+	
+Finally, list these five structures (by name) in terms of which is MOST EFFICIENT 
+in terms of HITS or MISSES for problems of size N=65536
+
+1. LinearProbingHashST is the most efficient
+2. BST
+3. SequentialSearchST
+4. SeparateChainingHashST
+5. AVLTreeST is the least efficient
+
+------------------------------------------------
+Bonus Questions
+------------------------------------------------
+
+If you do any bonus questions that need written answers, do so here.

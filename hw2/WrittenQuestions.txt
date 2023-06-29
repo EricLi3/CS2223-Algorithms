@@ -1,0 +1,51 @@
+<<Eric Li>>
+HW2
+Written Questions
+
+Question 1. Mathematical Analysis 
+------------------------------
+1.1
+
+The base case for S() is 3. This is because looking at the code the base case is when the array is of size 1 where lo == hi
+we see that the v variable is being computed using two calls to power and this is before the if statement.
+In the if statement we see that there is one call to power. So that makes the base case of array size 1 to call power 3 times
+
+The recursive case for S is 2 + 2S(n/2) + n/2 . This is because when the size of the array is, not one, we are not entering
+the if statement. We are however still computing v which calls power twice, making the constant in the recursive case 2. 
+Looking further down in the code. We see that for the variable total, we are making two recursive calls to the proc function
+each on half of the array. This can be represented as calling power 2S(n/2) times. We don't know what the S(n/2) is yet. Just that we 
+are calling power for half the original size which is n/2. We are doing this two times hence the multiple of 2. Looking 
+at the last block in the proc function, we have a while loop. In this while loop we are computing the total by adding up all
+the values we get by invoking the power function on every second element. This means that we are calling power n/2 times because
+we are only dealing with every other element in the array. This gives us the recurrence relation S(N) = 2 + 2S(N/2) + N/2 . 
+
+
+1.2
+
+In finding the exact solution to the recurrence for S(N) when N is a power of 2, we first identify the information we have. 
+We know that the recurrence relationship as computed in 1.1 is  S(N) = 2 + 2S(N/2) + N/2 . We also know from 1.1 that the base case
+for S() is 3. We choose to use the telescoping method to hopefully find a pattern and solve the recurrence. We compute some things like the
+S(N) which is given above, S(N/2) which is just 2 + 2S(N/4) + N/4, and S(N/4) which is 2 + 2S(N/8) + N/8. We found these values by 
+plugging in N/2 and N/4 into the S(N) equation for the value of N. We then write S(N) subbing in the S(N/2). We then can modify the S(N)
+even further by subbing in S(N/4) into S(N/2). This will hopefully allow us to see some pattern. Simplifying by expanding and algebra
+we get 
+S(N) = 2 + 2[2 + 2S(N/4) + N/4] + N/2
+	 = 2 + 2[2 + 2[2 + 2S(N/8) + N/8] + N/4] + N/2
+	 = 2 + 2[2 + 4 + 4S(N/8) + N/4 + N/4] + N/2
+	 = 2 + 4 + 8 + 8S(N/8) + N/2 + N/2 + N/2. 
+We can rewrite this as 2(1+2+4) + 2^(3) S(N/2^3) + 3(N/2)
+
+we recognize that the most elements we can have is log(n) = k and that 2^k = n.
+
+We can rewrite the expression as 2(2^(k) - 1) + 2^(k)S(N/2^(k)) + k(N/2)
+								= 2(2^(k) - 1) + 2^(k)S(1) + k(N/2)
+								= 2(2^(log(N)-1)) + 3N + (N*log(N)/2)
+								
+The exact solution for the recurrence for S(N) when N is a power of 2 is 2(2^(log(N)-1)) + 3N + (N*log(N)/2) . 
+
+We can then test this solution by making a program that prints out the predicted values
+------------------------------------------------
+Bonus Questions
+------------------------------------------------
+
+If you do any bonus questions that need written answers, do so here.
